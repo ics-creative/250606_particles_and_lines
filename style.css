@@ -3,8 +3,3 @@ html, body {
   padding: 0;
   overflow: hidden;
 }
-
-#canvas-container {
-  width: 960px;
-  height: 540px;
-}

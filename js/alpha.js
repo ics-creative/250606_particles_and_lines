@@ -4,12 +4,8 @@ const MAX_LINE_DIST = 100;
 const points = [];
 
 function setup() {
-  /* デモ用の設定 */
-  const container = document.getElementById('canvas-container');
-  const canvas = createCanvas(container.offsetWidth, container.offsetHeight);
-  canvas.parent(container);
-  
   /* 2. キャンバスの初期化 */
+  createCanvas(windowWidth, windowHeight); // デモ版の画面サイズ
   // createCanvas(640, 640);
   background(0);
   stroke(255, 10); // アルファ値を小さくする
@@ -27,7 +23,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 10);　　// アルファ値を小さくする
+  background(0, 10);  // アルファ値を小さくする
 
   /* 4. 点群のアップデート */
   for (const p of points) {
