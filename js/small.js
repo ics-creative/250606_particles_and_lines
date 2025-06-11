@@ -3,6 +3,10 @@ const NUM_POINTS = 400;   // 点群の数を増やす
 const MAX_LINE_DIST = 28;  // 線の閾値は小さく
 const points = [];
 
+/* デモ用 */
+const BASE_AREA = 960 * 540;
+let numPoints =  NUM_POINTS / 2;
+
 function setup() {
   /* 2. キャンバスの初期化 */
   createCanvas(windowWidth, windowHeight);
@@ -10,8 +14,13 @@ function setup() {
   background(0);
   stroke(255);  //　アルファ値の設定をなくし線をはっきりさせる
 
+  /* デモ用設定 */
+  const windowArea = width * height;
+  numPoints = floor(NUM_POINTS * windowArea / BASE_AREA);
+  numPoints = constrain(numPoints, 100, 600);
+
   /* 3. 点群の初期化 */
-  for (let i = 0; i < NUM_POINTS; i++) {
+  for (let i = 0; i < numPoints; i++) {
     const point = {
         x: random(width),
         y: random(height),
