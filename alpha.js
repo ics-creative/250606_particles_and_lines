@@ -7,7 +7,7 @@ function setup() {
   /* 2. キャンバスの初期化 */
   createCanvas(640, 640);
   background(0);
-  stroke(255, 100);
+  stroke(255, 10); // アルファ値を小さくする
 
   /* 3. 点群の初期化 */
   for (let i = 0; i < NUM_POINTS; i++) {
@@ -22,7 +22,7 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(0, 10);　　// アルファ値を小さくする
 
   /* 4. 点群のアップデート */
   for (const p of points) {
