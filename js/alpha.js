@@ -17,7 +17,7 @@ function setup() {
   /* デモ用設定 */
   const windowArea = width * height;
   numPoints = floor(NUM_POINTS * windowArea / BASE_AREA);
-  numPoints = constrain(numPoints, 100, 600);
+  numPoints = floor(constrain(numPoints, 100, 600));
 
   /* 3. 点群の初期化 */
   for (let i = 0; i < numPoints; i++) {
