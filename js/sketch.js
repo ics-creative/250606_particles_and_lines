@@ -6,6 +6,7 @@ const points = [];
 /* デモ用 */
 const BASE_AREA = 960 * 540;
 let numPoints = NUM_POINTS;
+let maxLineDist = MAX_LINE_DIST;
 
 function setup() {
   /* 2. キャンバスの初期化 */
@@ -18,6 +19,9 @@ function setup() {
   const windowArea = width * height;
   numPoints = floor(NUM_POINTS * windowArea / BASE_AREA);
   numPoints = floor(constrain(numPoints, 100, 600));
+  maxLineDist = floor(MAX_LINE_DIST * windowArea / BASE_AREA);
+  maxLineDist = floor(constrain(maxLineDist, 60, 100));
+  
 
   /* 3. 点群の初期化 */
   for (let i = 0; i < numPoints; i++) {
@@ -51,7 +55,7 @@ function draw() {
   for (let i = 0; i < points.length; i++) {
     for (let j = i + 1; j < points.length; j++) {
       const d = dist(points[i].x, points[i].y, points[j].x, points[j].y);
-      if (d <MAX_LINE_DIST) {
+      if (d <maxLineDist) {
         line(points[i].x, points[i].y, points[j].x, points[j].y);
       }
     }
