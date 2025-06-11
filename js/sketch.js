@@ -1,21 +1,26 @@
 /* 1. 変数の定義 */
-const NUM_POINTS = 400;   // 点群の数を増やす
-const MAX_LINE_DIST = 28;  // 線の閾値は小さく
+const NUM_POINTS = 100;
+const MAX_LINE_DIST = 100;
 const points = [];
 
 function setup() {
+  /* デモ用の設定 */
+  const container = document.getElementById('canvas-container');
+  const canvas = createCanvas(container.offsetWidth, container.offsetHeight);
+  canvas.parent(container);
+
   /* 2. キャンバスの初期化 */
-  createCanvas(640, 640);
+  // createCanvas(640, 640);
   background(0);
-  stroke(255);  //　アルファ値の設定をなくし線をはっきりさせる
+  stroke(255, 100);
 
   /* 3. 点群の初期化 */
   for (let i = 0; i < NUM_POINTS; i++) {
     const point = {
         x: random(width),
         y: random(height),
-        vx: random(-2, 2),  //　速度を大きく
-        vy: random(-2, 2),
+        vx: random(-1, 1),
+        vy: random(-1, 1),
     };
     points.push(point);
   }
